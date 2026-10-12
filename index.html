@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+</head>
+
+<body>
+    <html>
+        <center><h1>RE-FRESH THE PAGE TO PLAY AGAIN</h1></center>
+    </html>
+    <script>
+        alert("Welcome To ATM Stimulator")
+
+        let bank = prompt("Enter Bank Name (SBI/BOB) :");
+        let pin = parseInt(prompt("Enter the pin (Pin is '1234') :"));
+
+        let bal = 10000;
+
+        if (pin === 1234) {
+
+            alert("Welcome to " + bank + " !")
+
+            let choice;
+
+            while (choice != 4) {
+
+                choice = parseInt(prompt("Select Service (Any number: 1,2,3 Or 4):\n1.Check Balance\n2.Withdrawl\n3.Deposit\n4.Exit"));
+                if (choice === 1) {
+                    alert(`Your Balance is: Rs. ${bal}`)
+
+                } else if (choice === 2) {
+                    let amt = parseInt(prompt("Enter Amount to be Withdrawl:"))
+                    if (amt <= 0) {
+                        alert('Enter valid Amount!!')
+                    } else if (amt > bal) {
+                        alert("Insufficient Balance.")
+
+                    } else {
+                        bal = bal - amt;
+                        alert(`Remaining Balance is: Rs. ${bal}`);
+
+                    }
+
+                }
+
+                else if (choice === 3) {
+                    let amt = parseInt(prompt("Enter amount to be Deposited:"));
+                    if (amt<=0){
+                        alert("Enter Valid Amount!!");
+                    }else {
+                        bal = bal + amt;
+                        alert("Total Balance is: Rs." + bal);                       
+                    }
+                    
+                }
+
+                else if (choice === 4) {
+                    alert(`Thank you for using ${bank} service`)
+                }
+
+                else{
+                    alert("Enter a valid number from 1,2,3 or 4!!")
+                }
+                    
+            }
+        } else {
+            alert("Incorrect pin!!");
+        
+        }
+
+    </script>
+</body>
+
+</html>
